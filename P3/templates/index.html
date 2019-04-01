@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>Principal</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+
+		<h1>TESLA - Pagina principal</h1>
+		<h3>Bienvenido a Tesla España</h3>
+		
+		<article id="formularios">
+		
+			<section>
+				<form action = "http://localhost:8080/login" method="post">
+					 <p> Login:</p>
+					 <p> Enter Username:</p>
+					 <p> <input type="text" name="user"></p>
+					 <p> Enter Password:</p>
+					 <p> <input type="password" name="pwd"></p>
+					 <p> <input type="submit" name="submit"></p>
+				</form>
+				
+			</section>
+			
+			<section>
+				<form action = "http://localhost:8080/register" method="post">
+					 <p> Register:</p>
+					 <p> Enter Userame:</p>
+					 <p> <input type="text" name="user"></p>
+					 <p> Enter Full Name:</p>
+					 <p> <input type="text" name="nm"></p>
+					 <p> Enter Password:</p>
+					 <p> <input type="password" name="pwd"></p>
+					 <p> Enter City:</p>
+					 <p> <input type="text" name="ct"></p>
+					 <p> Tesla models owned by the user: </p>
+					 <p> <input type="text" name="models"></p>
+					 <p> <input type="submit" name="submit"></p>
+				</form>
+				
+			</section>
+		
+		</article>
+				
+	</header>
+	
+	<main>
+	
+		<h3>Novedades TESLA</h3>
+		
+		<article>
+			<section>
+				<h4>Encarga el nuevo model 3</h4>
+				<img id="sct" src="../static/images/model3.jpg">
+				<p>El nuevo model 3 coemenzara a entregarse en Europa a partir de 2019. Reserve ahora el suyo.</p>
+			</section>
+			
+			<section>
+				<h4>Nuevos superchargers en Andalucia</h4>
+				<img id="sct" src="../static/images/tesla.jpg">
+				<p>Ampliacion de la red de superchargers en Andalucia. A continuacion, se muestran <br>
+					los nuevos superchargers y sus ubicaciones.</p>
+			</section>
+			
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>

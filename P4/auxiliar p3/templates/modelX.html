@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>modelX</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+
+		<h1>TESLA - MODEL X</h1>
+		<h3>El todoterreno deportivo mas veloz y capaz del futuro</h3>
+				
+	</header>
+	
+	<main>
+	
+		<h3>Caracteristicas principales</h3>
+		
+		<article>
+			<section>
+				<img id="sct" src="../static/images/modelXpage.jpg">
+			</section>
+			
+			<section>
+				<h4>Conozca el Model X</h4>
+				<p>fue el primer SUV en recibir la calificación de Seguridad de<br>
+				5 estrellas de la US NCAP. Con tracción a las cuatro ruedas y una<br>
+				batería de 100 kWh que proporciona una autonomía de 565 kilómetros<br>
+				(NEDC), el Model X posee un amplio espacio que permite acomodar<br>
+				siete adultos sentados y todo su equipaje. Además, es locamente<br>
+				rápido, ya que acelera de cero a 100 kilómetros por hora en tan solo<br>
+				3,1 segundos. El Model X es el SUV sin concesiones.</p>
+			</section>
+			
+			<section>
+				<h4>Plazas y almacenamiento</h4>
+				<p>El Model X tiene mayor espacio de carga que ningún otro turismo<br>
+				deportivo de su segmento, y capacidad para siete adultos. Diseñado<br>
+				para optimizar el confort de los pasajeros, la segunda y tercera fila<br>
+				de la opción de siete plazas permite plegarse y quedarse plana, lo que<br>
+				da lugar a un mayor espacio de carga. Disponible en tres configuraciones<br>
+				personalizadas de asientos, el Model X se puede optimizar de acuerdo con<br>
+				sus necesidades concretas y las de su familia.</p>
+			</section>
+			
+			<section>
+				<h4>Seguridad activa</h4>
+				<p>Las tecnologías de seguridad activa, incluidos el sistema de prevención<br>
+				de colisión y el frenado de emergencia automático, han empezado a<br>
+				implantarse mediante actualizaciones por conexión inalámbrica.</p>
+			</section>
+			
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  
+		  {% if 'user' in session %}
+			
+			<a id="atitle" href="{{ url_for('users', user=session["user"]) }}">INICIO</a>
+			<a id="atitle" href="{{ url_for('profile', user=session["user"]) }}">Perfil</a>
+			
+			{% if session["pagina1"] == 'users' %}
+			<a href="{{ url_for(session["pagina1"], user=session["user"]) }}">{{ session['pagina1text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina1"]) }}">{{ session['pagina1text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina2"] == 'users' %}
+			<a href="{{ url_for(session["pagina2"], user=session["user"]) }}">{{ session['pagina2text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina2"]) }}">{{ session['pagina2text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina3"] == 'users' %}
+			<a href="{{ url_for(session["pagina3"], user=session["user"]) }}">{{ session['pagina3text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina3"]) }}">{{ session['pagina3text'] }}</a>
+			{% endif %}
+		  
+		  <a id="atitle" href="#">MODELOS TESLA</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% else %}
+		  
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% endif %}
+		  
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>

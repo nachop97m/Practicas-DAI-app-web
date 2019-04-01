@@ -1,0 +1,189 @@
+#nav1, footer{
+    
+    background-color: gainsboro;
+    
+}
+
+#tabind{
+    
+    background-color: deepskyblue;
+    
+}
+
+#evt {
+    
+    margin: 20px;
+    
+}
+
+#nav1{
+    
+    margin-top: -20px;
+    
+}
+
+#imagenes section,#evt, #eventTabla, #event{
+    
+    text-align: center;
+    
+}
+
+#4 {
+    
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#imagenes section{
+
+    background-color: aliceblue;
+    
+}
+
+#linktienda{
+    
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+section img{
+    
+    width: 150px;
+    height: 150px;
+    
+}
+
+footer, main{
+    
+    clear: both;
+    
+}
+
+#listaHori li{
+    
+    padding-top: 10px;
+    float: left;
+    width: 20%;
+    list-style: none;
+    
+}
+
+
+#listaHori {
+    
+    overflow: hidden;
+    align-content: center;
+    
+}
+
+#imgTitulo {
+    
+    width: 100%;
+    height: 400px;
+    
+}
+
+#tituloPagina {
+    
+    padding: 20px;
+    background-color: white;
+    
+}
+
+#event{
+    
+    margin: 30px;
+    border: 5px solid #99ccff;
+    border-collapse: collapse;
+    
+}
+
+#cell1{
+    
+    font-weight: bold;
+    
+}
+
+#cell1:hover{
+    
+    color: mediumvioletred;
+    
+}
+
+#cellr:hover{
+    
+    color: mediumvioletred;
+    
+}
+
+#prow{
+    
+    background-color: hotpink;
+    
+}
+
+#prow:hover{
+    
+    background-color: deeppink;
+    
+}
+
+#irow{
+    
+    background-color: blueviolet;
+    
+}
+
+#irow:hover{
+    
+    background-color: rebeccapurple;
+    
+}
+
+a:link {
+    
+    text-decoration: none;
+    
+}
+
+a:hover{
+    
+    background-color: aqua;
+}
+
+section {
+    
+    margin: 10px;
+    
+}
+
+
+
+aside{
+    
+    float: right;
+    margin: 0 1.5%;
+    width: 25%;
+    display: grid;
+    
+}
+
+header {
+    
+    margin: 0 1.5%;
+    
+}
+
+main{
+
+    float: left;
+    width: 68%;
+    margin: 0 1.5%;
+    background-color: gainsboro;
+    
+}
+
+ 
+

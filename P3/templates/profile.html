@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>profile</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+
+		<h1>TESLA</h1>
+		<h3>Bienvenid@ {{ user }}</h3>
+		
+		<a href="/">Logout</a>
+				
+	</header>
+	
+	<main>
+	
+		<h3>Perfil de {{ user }}</h3>
+		
+		<article>
+		
+			<section>
+			
+				<h4>Datos Personales</h4>
+				<p>Usuario: {{ user }}</p>
+				<p>Nombre: {{ name }}</p>
+				<p>Contraseña: {{ pwd }}</p>
+				<p>Ciudad: {{ ct }}</p>
+				<p>Modelos: {{ models }}</p>
+			
+			</section>
+		
+			<section>
+			
+				<h4>Cambiar datos:</h4>
+				<form action = "http://localhost:8080/alter" method="post">
+						 <p> Enter Full Name:</p>
+						 <p> <input type="text" name="nm"></p>
+						 <p> Enter Password:</p>
+						 <p> <input type="password" name="pwd"></p>
+						 <p> Enter City:</p>
+						 <p> <input type="text" name="ct"></p>
+						 <p> Tesla models owned by the user: </p>
+						 <p> <input type="text" name="models"></p>
+						 <p> <input type="submit" name="submit"></p>
+					</form>
+			
+			</section>
+		
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  
+		  {% if 'user' in session %}
+			
+			<a id="atitle" href="{{ url_for('users', user=session["user"]) }}">INICIO</a>
+			<a id="atitle" href="{{ url_for('profile', user=session["user"]) }}">Perfil</a>
+			
+			{% if session["pagina1"] == 'users' %}
+			<a href="{{ url_for(session["pagina1"], user=session["user"]) }}">{{ session['pagina1text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina1"]) }}">{{ session['pagina1text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina2"] == 'users' %}
+			<a href="{{ url_for(session["pagina2"], user=session["user"]) }}">{{ session['pagina2text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina2"]) }}">{{ session['pagina2text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina3"] == 'users' %}
+			<a href="{{ url_for(session["pagina3"], user=session["user"]) }}">{{ session['pagina3text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina3"]) }}">{{ session['pagina3text'] }}</a>
+			{% endif %}
+		  
+		  <a id="atitle" href="#">MODELOS TESLA</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% else %}
+		  
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% endif %}
+		  
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>

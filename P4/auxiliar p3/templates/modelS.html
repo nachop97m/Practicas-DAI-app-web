@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>modelS</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+
+		<h1>TESLA - MODEL S</h1>
+		<h3>La berlina del futuro, en el presente</h3>
+				
+	</header>
+	
+	<main>
+	
+		<h3>Caracteristicas principales</h3>
+		
+		<article>
+		
+			<section>
+				<img id="sct" src="../static/images/modelSpage.jpg">
+			</section>
+			
+			<section>
+				<h4>Rendimiento y seguridad</h4>
+				<p>El Model S está diseñado para la seguridad y para ser el vehículo más emocionante en la carretera,<br>
+				desde su concepción. Con el incomparable rendimiento del exclusivo tren motriz eléctrico Tesla, el<br>
+				Model S acelera de 0 a 100 km/h en tan solo 2,7 segundos. El Model S incluye la posibilidad de<br>
+				conducción asistida con piloto automático, diseñada para que pueda conducir en carretera no solo<br>
+				con más seguridad, sino también libre de estrés.</p>
+			</section>
+			
+			<section>
+				<h4>Iluminación adaptable</h4>
+				<p>El Model S ahora posee faros adaptables Full-LED. Además<br>
+				de mejorar el estilo, de por sí grandioso, también refuerzan la<br>
+				seguridad: Las 14 luces LED de tres posiciones en curva mejoran la<br>
+				visibilidad en la noche, especialmente en carreteras sinuosas.</p>
+			</section>
+			
+			<section>
+				<h4>Modo de defensa contra armas biológicas</h4>
+				<p>Ahora el Model S incluye un sistema de filtración de aire HEPA<br>
+				de grado médico, que elimina efectivamente del aire de la cabina<br>
+				al menos el 99,97 % de la contaminación de partículas del escape,<br>
+				alérgenos y bacterias. El modo de defensa contra armas biológicas<br>
+				crea una presión positiva dentro de la cabina para proteger a sus<br>
+				ocupantes.</p>
+			</section>
+			
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  
+		  {% if 'user' in session %}
+			
+			<a id="atitle" href="{{ url_for('users', user=session["user"]) }}">INICIO</a>
+			<a id="atitle" href="{{ url_for('profile', user=session["user"]) }}">Perfil</a>
+			
+			{% if session["pagina1"] == 'users' %}
+			<a href="{{ url_for(session["pagina1"], user=session["user"]) }}">{{ session['pagina1text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina1"]) }}">{{ session['pagina1text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina2"] == 'users' %}
+			<a href="{{ url_for(session["pagina2"], user=session["user"]) }}">{{ session['pagina2text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina2"]) }}">{{ session['pagina2text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina3"] == 'users' %}
+			<a href="{{ url_for(session["pagina3"], user=session["user"]) }}">{{ session['pagina3text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina3"]) }}">{{ session['pagina3text'] }}</a>
+			{% endif %}
+		  
+		  <a id="atitle" href="#">MODELOS TESLA</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% else %}
+		  
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% endif %}
+		  
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>

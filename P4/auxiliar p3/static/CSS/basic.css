@@ -1,0 +1,92 @@
+body {
+    text-align: center;
+}
+
+#imgTitulo {
+    
+    width: 100%;
+    
+}
+
+#sct{
+	
+	width: 1000px;
+	
+}
+
+#formularios{
+
+	line-height: 150px;
+    text-align: center;
+	background-color: #B9D2D8;
+	
+}
+
+#formularios section{
+	
+	line-height: 1;
+    display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+	background-color: #4CAF50;
+	
+}
+
+
+header{
+	
+	background-color: #F0F8FF;
+	
+}
+
+main {
+
+	float: right;
+	width:70%;
+	
+}
+
+aside {
+	
+	float: left;
+	widht: 30%;
+	
+}
+
+main, aside {
+
+	margin: 0;
+	padding: 0;
+	
+}
+
+.vertical-menu {
+    width: 400px;
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+#atitle, .vertical-menu a.active{
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+footer {
+
+	clear: both;
+	position: relative;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}

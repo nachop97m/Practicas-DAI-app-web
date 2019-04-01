@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>model3</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+		
+		<h1>TESLA - MODEL 3</h1>
+		<h3>Máxima valoración de seguridad en todas las categorías</h3>
+				
+	</header>
+	
+	<main>
+	
+		<h3>Caracteristicas principales</h3>
+		
+		<article>
+			<section>
+				<img id="sct" src="../static/images/model3page.jpg">
+			</section>
+			
+			<section>
+				<h4>Conozca el Model 3</h4>
+				<p>El Model 3 es un vehículo eléctrico más pequeño, sencillo<br>
+				y asequible. Aunque sea nuestro vehículo más nuevo, el Model 3<br>
+				no es la "versión 3" ni el Tesla más avanzado. Está diseñado<br>
+				para ser el vehículo más seguro de su segmento.</p>
+			</section>
+			
+			<section>
+				<h4>Entregas</h4>
+				<p>Han comenzado las entregas del Model 3 en EE. UU. y Canadá,<br>
+				mientras que las demás entregas internacionales comenzarán en<br>
+				2019. Los titulares de las reservas recibirán un correo electrónico<br>
+				cuando llegue el momento de realizar el pedido.</p>
+			</section>
+			
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  
+		  {% if 'user' in session %}
+			
+			<a id="atitle" href="{{ url_for('users', user=session["user"]) }}">INICIO</a>
+			<a id="atitle" href="{{ url_for('profile', user=session["user"]) }}">Perfil</a>
+			
+			{% if session["pagina1"] == 'users' %}
+			<a href="{{ url_for(session["pagina1"], user=session["user"]) }}">{{ session['pagina1text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina1"]) }}">{{ session['pagina1text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina2"] == 'users' %}
+			<a href="{{ url_for(session["pagina2"], user=session["user"]) }}">{{ session['pagina2text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina2"]) }}">{{ session['pagina2text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina3"] == 'users' %}
+			<a href="{{ url_for(session["pagina3"], user=session["user"]) }}">{{ session['pagina3text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina3"]) }}">{{ session['pagina3text'] }}</a>
+			{% endif %}
+		  
+		  <a id="atitle" href="#">MODELOS TESLA</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% else %}
+		  
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% endif %}
+		  
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>

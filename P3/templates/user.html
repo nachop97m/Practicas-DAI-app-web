@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="author" content="Nacho">
+    <meta name="keywords" content="html, universidad, DAI">
+    <title>user</title>
+    <link rel="stylesheet" href="../static/CSS/basic.css">
+	
+</head>
+
+<body>
+
+	<header>
+
+        <img id="imgTitulo" src="../static/images/teslaMlogo.png">
+
+		<h1>TESLA - Pagina principal</h1>
+		<h3>Bienvenid@ {{ user }}</h3>
+		
+		<a href="/">Logout</a>
+
+	</header>
+	
+	<main>
+	
+		<h3>Novedades de {{ user }}</h3>
+		
+		<article>
+			
+			{% if user == 'Nacho' %}
+			<section>
+				<h4>Estado de su model 3</h4>
+				<img id="sct" src="../static/images/garajenacho.jpg">
+				<p>Su model 3 se encuentra en estos instantes en Calle Caramelo, Granada. <br>
+				Nivel de bateria 48%. 250Km restantes.</p>
+			</section>
+			
+			<section>
+				<h4>Novedades personalizadas</h4>
+				<p> Ampliacion de la red de superchargers en Andalucia. A continuacion, se muestran <br>
+					los nuevos superchargers y sus ubicaciones.</p>
+				<p> Los clientes del model 3 recibiran la nueva actualizacion de autopilot 2.0 en la proxima semana</p>
+			</section>
+			
+			{% elif user == 'Maria' %}
+			<section>
+				<h4>Estado de su model S</h4>
+				<img id="sct" src="../static/images/garajemaria.jpg">
+				<p>Su model S se encuentra en estos instantes en Avenida Nikola Tesla, Madrid. <br>
+				Nivel de bateria 72%. 468Km restantes.</p>
+			</section>
+			
+			<section>
+				<h4>Novedades personalizadas</h4>
+				<p> Ampliacion de los superchargers de Humanes y Getafe debido a la alta demanda </p>
+				<p> 10 nuevos aparcamientos con carga en el centro de Madrid</p>
+				<p> Encuentro Tesla en Guadalajara</p>
+			</section>
+			
+			{% else %}
+			<section>
+				<h4>Usuario no registrado</h4>
+			</section>
+			{% endif %}
+			
+		</article>
+	
+	</main>
+	
+	<aside>
+		<div class="vertical-menu">
+		  
+		  {% if 'user' in session %}
+			
+			<a id="atitle" href="{{ url_for('users', user=session["user"]) }}">INICIO</a>
+			<a id="atitle" href="{{ url_for('profile', user=session["user"]) }}">Perfil</a>
+			
+			{% if session["pagina1"] == 'users' %}
+			<a href="{{ url_for(session["pagina1"], user=session["user"]) }}">{{ session['pagina1text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina1"]) }}">{{ session['pagina1text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina2"] == 'users' %}
+			<a href="{{ url_for(session["pagina2"], user=session["user"]) }}">{{ session['pagina2text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina2"]) }}">{{ session['pagina2text'] }}</a>
+			{% endif %}
+			
+			{% if session["pagina3"] == 'users' %}
+			<a href="{{ url_for(session["pagina3"], user=session["user"]) }}">{{ session['pagina3text'] }}</a>
+			{% else %}
+			<a href="{{ url_for(session["pagina3"]) }}">{{ session['pagina3text'] }}</a>
+			{% endif %}
+		  
+		  <a id="atitle" href="#">MODELOS TESLA</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% else %}
+		  
+		  <a id="atitle" href="{{ url_for('user') }}">INICIO</a>
+		  <a href="{{ url_for('models') }}">TESLA MODEL S</a>
+		  <a href="{{ url_for('modelx') }}">TESLA MODEL X</a>
+		  <a href="{{ url_for('model3') }}">TESLA MODEL 3</a>
+		  
+		  {% endif %}
+		  
+		</div>
+	</aside>
+	
+	<footer>
+	
+		<p>Ignacio Pineda. Practicas DAI.</p>
+	
+	</footer>
+
+</body>
